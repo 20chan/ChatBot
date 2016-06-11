@@ -1,0 +1,6 @@
+C:\C#\ChatBot\ChatBot\bin\Debug\ChatBot.exe.config
+C:\C#\ChatBot\ChatBot\bin\Debug\ChatBot.exe
+C:\C#\ChatBot\ChatBot\bin\Debug\ChatBot.pdb
+C:\C#\ChatBot\ChatBot\obj\Debug\ChatBot.csprojResolveAssemblyReference.cache
+C:\C#\ChatBot\ChatBot\obj\Debug\ChatBot.exe
+C:\C#\ChatBot\ChatBot\obj\Debug\ChatBot.pdb
