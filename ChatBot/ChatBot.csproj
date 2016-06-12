@@ -34,6 +34,9 @@
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="NHanNanum">
+      <HintPath>NHanNanum.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -42,6 +45,7 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -55,6 +59,80 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="conf\plugin\MajorPlugin\MorphAnalyzer\ChartMorphAnalyzer.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="conf\plugin\MajorPlugin\PosTagger\HmmPosTagger.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="conf\plugin\SupplementPlugin\MorphemeProcessor\SimpleMAResult09.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="conf\plugin\SupplementPlugin\MorphemeProcessor\SimpleMAResult22.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="conf\plugin\SupplementPlugin\MorphemeProcessor\UnknownMorphProcessor.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="conf\plugin\SupplementPlugin\PlainTextProcessor\InformalSentenceFilter.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="conf\plugin\SupplementPlugin\PlainTextProcessor\SentenceSegmentor.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="conf\plugin\SupplementPlugin\PosProcessor\NounExtractor.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="conf\plugin\SupplementPlugin\PosProcessor\SimplePOSResult09.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="conf\plugin\SupplementPlugin\PosProcessor\SimplePOSResult22.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\kE\connections.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\kE\connections_not.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\kE\dic_analyzed.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\kE\dic_system.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\kE\dic_user.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\kE\tag_set.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\stat\PTT.pos">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\stat\PTT.wp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\stat\PWT.pos">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="conf" />
+    <Folder Include="conf\plugin" />
+    <Folder Include="conf\plugin\MajorPlugin" />
+    <Folder Include="conf\plugin\MajorPlugin\MorphAnalyzer" />
+    <Folder Include="conf\plugin\MajorPlugin\PosTagger" />
+    <Folder Include="conf\plugin\SupplementPlugin" />
+    <Folder Include="conf\plugin\SupplementPlugin\MorphemeProcessor" />
+    <Folder Include="conf\plugin\SupplementPlugin\PlainTextProcessor" />
+    <Folder Include="conf\plugin\SupplementPlugin\PosProcessor" />
+    <Folder Include="data" />
+    <Folder Include="data\kE" />
+    <Folder Include="data\stat" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

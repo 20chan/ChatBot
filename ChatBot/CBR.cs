@@ -118,6 +118,7 @@ namespace ChatBot
 			};
 			*/
 			
+			/*
 			AddConversation("Hello", "Hi!");
 			AddConversation("Hi", "Hi!");
 			AddConversation("Are you happy?", "I'm sorry, but I am just a bot. What do you want?");
@@ -129,6 +130,26 @@ namespace ChatBot
 			AddConversation("What is 1 + 1", "Are you testing me? ;(");
 			AddConversation("What do you think of me", "You are nice man, or woman. :)");
 			AddConversation("Do you know", "Sure. Are you thinking me as fool? QAQ");
+			*/
+		}
+		
+		public void LoadKakaoTalkLog()
+		{
+			using (FileStream fs = new FileStream("data.txt", FileMode.Open))
+			{
+				StreamReader sr = new StreamReader(fs);
+				string _old = Parser.ParseKakaotalkLog(sr.ReadLine());
+				string _new;
+				
+				while((_new = sr.ReadLine()) != null)
+				{
+					_new = Parser.ParseKakaotalkLog(_new);
+					if(String.IsNullOrEmpty(_new) || String.IsNullOrWhiteSpace(_new)) { _old = _new; continue; }
+					if(string.IsNullOrEmpty(_old) || String.IsNullOrWhiteSpace(_old)) { _old = _new; continue; }
+					AddConversation(_new, _old);
+					_old = _new;
+				}
+			}
 		}
 		
 		/// <summary>
@@ -139,6 +160,8 @@ namespace ChatBot
 		public void AddConversation(string A, string B)
 		{
 			string[] parsed_a = Parser.ParseKorean(A);
+			
+			if(parsed_a.Length == 0 || parsed_a.Length == 1 && parsed_a[0] == "") return;
 			
 			//먼저 말뭉치 테이블에 말뭉치 가중치를 업데이트 해준다.
 			if(!containSentence(_table.corpuses, B))

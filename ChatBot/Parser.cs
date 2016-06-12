@@ -5,28 +5,52 @@
  */
 using System;
 using System.Collections.Generic;
-
+using kr.ac.kaist.swrc.jhannanum.comm;
+using kr.ac.kaist.swrc.jhannanum.hannanum;
 namespace ChatBot
 {
 	public static class Parser
 	{
-		private static List<string> userLess = new List<string>()
-		{
-			"a", "an", "the",
-			"am", "is", "are", "was", "were"
-		};
+		static Workflow workflow;
 		public static string[] ParseKorean(string input)
 		{
-			List<string> result = new List<string>();
-			
-			foreach(string s in input.Split(null))
+			if(input == null) return new string[]{};
+			if(String.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input)) return new string[]{};
+			if(workflow  == null)
 			{
-				string low = s.ToLower();
-				if(!userLess.Contains(low))
-					result.Add(low);
+				workflow = WorkflowFactory.getPredefinedWorkflow(WorkflowFactory.WORKFLOW_POS_SIMPLE_09);
+				workflow.activateWorkflow(true);
 			}
 			
-			return result.ToArray();
+			workflow.analyze(input);
+			LinkedList<Sentence> result = workflow.getResultOfDocument(new Sentence(0, 0, false));
+			
+			List<string> res = new List<string>();
+			foreach (Sentence s in result)
+            {
+                Eojeol[] eojeolArray = s.Eojeols;
+                for (int i = 0; i < eojeolArray.Length; i++)
+                {
+                    if (eojeolArray[i].length > 0)
+                    {
+                        String[] morphemes = eojeolArray[i].Morphemes;
+                        for (int j = 0; j < morphemes.Length; j++)
+                        {
+                        	res.Add(morphemes[j]);
+                        }
+                    }
+                }
+            }
+			
+			return res.ToArray();
+		}
+		
+		public static string ParseKakaotalkLog(string line)
+		{
+			if(line == null) return "";
+			string[] spl = line.Split(':');
+			if(spl.Length < 3) return "";
+			return line.Substring(spl[0].Length + spl[1].Length + 3);
 		}
 	}
 }

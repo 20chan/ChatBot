@@ -12,8 +12,10 @@ namespace ChatBot
 		public static void Main(string[] args)
 		{
 			CBR t = new CBR();
+			t.LoadKakaoTalkLog();
 			//t.LoadTable("save.dat");
-			
+			System.Windows.Forms.MessageBox.Show("학습이 완료되었습니다!");
+		
 			while(true)
 			{
 				Console.ForegroundColor = ConsoleColor.Gray;
