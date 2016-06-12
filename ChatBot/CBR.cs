@@ -146,7 +146,7 @@ namespace ChatBot
 					_new = Parser.ParseKakaotalkLog(_new);
 					if(String.IsNullOrEmpty(_new) || String.IsNullOrWhiteSpace(_new)) { _old = _new; continue; }
 					if(string.IsNullOrEmpty(_old) || String.IsNullOrWhiteSpace(_old)) { _old = _new; continue; }
-					AddConversation(_new, _old);
+					AddConversation(_old, _new);
 					_old = _new;
 				}
 			}
