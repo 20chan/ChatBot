@@ -4,7 +4,7 @@
  * 시간: 오전 1:08
  */
 
- #define PARSETEST
+ //#define PARSETEST
 
 using System;
 
@@ -22,8 +22,8 @@ namespace ChatBot
                 Console.WriteLine(); }
 # else
             CBR t = new CBR();
-            t.LoadKakaoTalkLog();
-            //t.LoadTable("save.dat");
+            //t.LoadKakaoTalkLog();
+            t.LoadTable("save.dat");
             System.Windows.Forms.MessageBox.Show("학습이 완료되었습니다!");
 
             while (true)

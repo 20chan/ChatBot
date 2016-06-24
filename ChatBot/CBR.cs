@@ -61,21 +61,24 @@ namespace ChatBot
 		public string Sentence;
 		public float Weight;
 	}
-	
-	public class CBR
+
+    [Serializable]
+    public class Table
+    {
+        public Table()
+        {
+            table = new Dictionary<string, int[]>();
+            corpuses = new List<Corpus>();
+        }
+        public Dictionary<string, int[]> table;
+        public List<Corpus> corpuses;
+    }
+
+    public class CBR
 	{
-		[Serializable]
-		protected class Table
-		{
-			public Table()
-			{
-				table = new Dictionary<string, int[]>();
-				corpuses = new List<Corpus>();
-			}
-			public Dictionary<string, int[]> table;
-			public List<Corpus> corpuses;
-		}
 		Table _table;
+
+        public Table Table { get { return _table; } }
 		
 		public CBR()
 		{
@@ -331,5 +334,5 @@ namespace ChatBot
 			
 			return index;
 		}
-	}
+    }
 }
