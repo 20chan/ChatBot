@@ -2,6 +2,7 @@
 
 ## 3년 전에 작성한 코드라 매우 더럽습니다
 ## 이 코드는 [여기](https://github.com/Big-BlueBerry/redesigned-chatbot) 에서 다시 작성되었습니다.
+## This project has been obsolete. Please check [here](https://github.com/Big-BlueBerry/redesigned-chatbot).
 
 CBR (Case based reasoning) 알고리즘을 사용한 간단한 채팅 봇.
 
